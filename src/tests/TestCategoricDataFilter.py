@@ -4,8 +4,8 @@ from missingdata import CategoricDataFilter
 from metadata import DatasetMetadataLoader
 
 
-class TestDatasetMetadataLoader(unittest.TestCase):
-    def test_(self):
+class TestCategoricDataFilter(unittest.TestCase):
+    def test_impute_newDataframeContainsNoNullValuesInCategoricColumns(self):
         metadata = DatasetMetadataLoader("metadata.ini")
         dataset = pd.read_csv('Data.csv')
 
