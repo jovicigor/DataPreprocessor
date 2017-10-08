@@ -1,3 +1,4 @@
 # DataPreprocessor
 
-An engine for processing datasets for machine learning
+Branching stragegy: 
+- http://nvie.com/posts/a-successful-git-branching-model/ 
