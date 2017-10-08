@@ -7,13 +7,13 @@ class TestDatasetMetadataLoader(unittest.TestCase):
     def test_loadCategoricType_returnsCategoric(self):
         metadata = DatasetMetadataLoader("metadata.ini")
 
-        feature_type = metadata.get_feature_type("Country")
+        featureType = metadata.getFeatureType("Country")
 
-        self.assertEqual(feature_type, FeatureType.CATEGORIC)
+        self.assertEqual(featureType, FeatureType.CATEGORIC)
 
     def test_loadNumericType_returnsNumeric(self):
         metadata = DatasetMetadataLoader("metadata.ini")
 
-        feature_type = metadata.get_feature_type("Age")
+        featureType = metadata.getFeatureType("Age")
 
-        self.assertEqual(feature_type, FeatureType.NUMERIC)
+        self.assertEqual(featureType, FeatureType.NUMERIC)

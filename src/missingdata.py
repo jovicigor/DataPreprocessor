@@ -16,7 +16,7 @@ class NumericDataImputer:
 
     def extractNumericColumns(self, dataframe, metadata):
         return [columnName for columnName in dataframe.columns
-                if metadata.get_feature_type(columnName) == FeatureType.NUMERIC]
+                if metadata.getFeatureType(columnName) == FeatureType.NUMERIC]
 
     def impute(self, strategy=ImputeStrategy.MEAN):
         imputer = Imputer(missing_values='NaN', strategy=strategy, axis=0)
@@ -36,7 +36,7 @@ class CategoricDataFilter:
 
     def extractCategoricColumns(self, dataframe, metadata):
         return [columnName for columnName in dataframe.columns
-                if metadata.get_feature_type(columnName) == FeatureType.CATEGORIC]
+                if metadata.getFeatureType(columnName) == FeatureType.CATEGORIC]
 
     def removeSamplesWithMissingData(self):
         for column in self.categoricColumns:
