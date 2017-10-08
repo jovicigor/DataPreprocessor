@@ -1,5 +1,6 @@
 from sklearn.preprocessing import Imputer
 from metadata import FeatureType
+import pandas as pd
 
 
 class ImputeStrategy:
@@ -10,10 +11,12 @@ class ImputeStrategy:
 
 class NumericDataImputer:
     def __init__(self, metadata, dataframe):
-        self.metadata = metadata
         self.dataframe = dataframe.copy()
-        self.numericColumns = [columnName for columnName in dataframe.columns
-                               if metadata.get_feature_type(columnName) == FeatureType.NUMERIC]
+        self.numericColumns = self.extractNumericColumns(dataframe, metadata)
+
+    def extractNumericColumns(self, dataframe, metadata):
+        return [columnName for columnName in dataframe.columns
+                if metadata.get_feature_type(columnName) == FeatureType.NUMERIC]
 
     def impute(self, strategy=ImputeStrategy.MEAN):
         imputer = Imputer(missing_values='NaN', strategy=strategy, axis=0)
@@ -22,5 +25,21 @@ class NumericDataImputer:
             columnIndex = self.dataframe.columns.tolist().index(column)
             columnValues = self.dataframe.iloc[:, columnIndex:columnIndex + 1].values
             self.dataframe[column] = imputer.fit_transform(columnValues)
+
+        return self.dataframe
+
+
+class CategoricDataFilter:
+    def __init__(self, metadata, dataframe):
+        self.dataframe = dataframe.copy()
+        self.categoricColumns = self.extractCategoricColumns(dataframe, metadata)
+
+    def extractCategoricColumns(self, dataframe, metadata):
+        return [columnName for columnName in dataframe.columns
+                if metadata.get_feature_type(columnName) == FeatureType.CATEGORIC]
+
+    def removeSamplesWithMissingData(self):
+        for column in self.categoricColumns:
+            self.dataframe = self.dataframe[pd.notnull(self.dataframe[column])]
 
         return self.dataframe
