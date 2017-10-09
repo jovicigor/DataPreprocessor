@@ -21,7 +21,7 @@ class TestPreprocessingEngine(unittest.TestCase):
         for categoricColumn in categoricColumns:
             self.assertTrue(is_string_dtype(processedDataset[categoricColumn]))
 
-        testee = CategoricDataEncoder(processedDataset, metadata)
+        testee = CategoricDataEncoder(metadata, processedDataset)
         encodedDataset = testee.encodeCategoricColumns()
 
         for categoricColumn in categoricColumns:
@@ -34,7 +34,7 @@ class TestPreprocessingEngine(unittest.TestCase):
 
         processedDataset = self.prepareDataset(dataset, metadata)
 
-        testee = CategoricDataEncoder(processedDataset, metadata)
+        testee = CategoricDataEncoder(metadata, processedDataset)
         encodedDataset = testee.encodeCategoricColumns(columnsToTransform=["Country"])
 
         self.assertFalse("Country" in encodedDataset.columns)

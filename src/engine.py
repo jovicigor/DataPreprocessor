@@ -1,3 +1,4 @@
+from categoricdata import CategoricDataEncoder
 from missingdata import NumericDataImputer
 from missingdata import CategoricDataFilter
 
@@ -15,6 +16,11 @@ class PreprocessingEngine:
     def filterMissingCategoricData(self):
         categoricDataFilter = CategoricDataFilter(self.metadata, self.dataset)
         self.dataset = categoricDataFilter.removeSamplesWithMissingData()
+        return self
+
+    def encodeCategoricData(self, columnsToTransform):
+        categoricDataEncoder = CategoricDataEncoder(self.metadata, self.dataset)
+        self.dataset = categoricDataEncoder.encodeCategoricColumns(columnsToTransform)
         return self
 
     def getProcessedDataframe(self):

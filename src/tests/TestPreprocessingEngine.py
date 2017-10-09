@@ -19,3 +19,12 @@ class TestPreprocessingEngine(unittest.TestCase):
 
         for columnContainsNull in containNull:
             self.assertFalse(columnContainsNull)
+
+        encodedDataframe = PreprocessingEngine(processedDataframe, metadata) \
+            .encodeCategoricData(columnsToTransform="Country") \
+            .getProcessedDataframe()
+
+        self.assertFalse("Country" in encodedDataframe.columns)
+        self.assertTrue("Spain" in encodedDataframe.columns)
+        self.assertTrue("Germany" in encodedDataframe.columns)
+        self.assertTrue("France" in encodedDataframe.columns)

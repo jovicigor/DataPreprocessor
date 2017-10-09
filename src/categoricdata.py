@@ -5,7 +5,7 @@ from metadata import FeatureType
 
 
 class CategoricDataEncoder:
-    def __init__(self, dataframe, metadata):
+    def __init__(self, metadata, dataframe):
         self.dataset = dataframe.copy()
         self.categoricColumns = [columnName for columnName in dataframe.columns
                                  if metadata.getFeatureType(columnName) == FeatureType.CATEGORIC]
