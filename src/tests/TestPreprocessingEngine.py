@@ -1,6 +1,7 @@
 import unittest
 
 import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
 
 from engine import PreprocessingEngine
 from metadata import DatasetMetadataLoader
@@ -30,3 +31,16 @@ class TestPreprocessingEngine(unittest.TestCase):
         self.assertTrue("Spain" in encodedDataframe.columns)
         self.assertTrue("Germany" in encodedDataframe.columns)
         self.assertTrue("France" in encodedDataframe.columns)
+
+        scaledDataframe = PreprocessingEngine(encodedDataframe, metadata) \
+            .scaleDataset(MinMaxScaler()) \
+            .getProcessedDataframe()
+
+        # TODO: add list of columns to be scaled
+        # allcolumns are scaled
+        for column in scaledDataframe.columns:
+            columnIsScaled = (scaledDataframe[column] <= 1).all()
+            self.assertTrue(columnIsScaled)
+
+        print(scaledDataframe)
+        print(scaledDataframe[["Age", "Salary"]])

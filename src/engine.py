@@ -1,6 +1,7 @@
 from categoricdata import CategoricDataEncoder
 from missingdata import CategoricDataFilter
 from missingdata import NumericDataImputer
+from scaling import Scaler
 
 
 class PreprocessingEngine:
@@ -21,6 +22,11 @@ class PreprocessingEngine:
     def encodeCategoricData(self, columnsToTransform):
         categoricDataEncoder = CategoricDataEncoder(self.metadata, self.dataset)
         self.dataset = categoricDataEncoder.encodeCategoricColumns(columnsToTransform)
+        return self
+
+    def scaleDataset(self, sklearScaler):
+        scaler = Scaler(sklearScaler)
+        self.dataset = scaler.scaleDataset(self.dataset)
         return self
 
     def getProcessedDataframe(self):
