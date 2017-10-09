@@ -1,6 +1,6 @@
 from categoricdata import CategoricDataEncoder
-from missingdata import NumericDataImputer
 from missingdata import CategoricDataFilter
+from missingdata import NumericDataImputer
 
 
 class PreprocessingEngine:

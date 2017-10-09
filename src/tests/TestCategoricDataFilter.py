@@ -1,7 +1,9 @@
 import unittest
+
 import pandas as pd
-from missingdata import CategoricDataFilter
+
 from metadata import DatasetMetadataLoader
+from missingdata import CategoricDataFilter
 
 
 class TestCategoricDataFilter(unittest.TestCase):

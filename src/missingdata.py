@@ -1,6 +1,7 @@
-from sklearn.preprocessing import Imputer
-from metadata import FeatureType
 import pandas as pd
+from sklearn.preprocessing import Imputer
+
+from metadata import FeatureType
 
 
 class ImputeStrategy:

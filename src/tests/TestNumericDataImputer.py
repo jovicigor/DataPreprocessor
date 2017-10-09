@@ -1,7 +1,9 @@
 import unittest
+
 import pandas as pd
-from missingdata import NumericDataImputer
+
 from metadata import DatasetMetadataLoader
+from missingdata import NumericDataImputer
 
 
 class TestNumericDataImputerLoader(unittest.TestCase):

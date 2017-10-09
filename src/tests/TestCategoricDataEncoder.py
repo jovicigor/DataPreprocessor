@@ -1,12 +1,13 @@
 import unittest
-import pandas as pd
-from metadata import DatasetMetadataLoader, FeatureType
-from engine import PreprocessingEngine
-from missingdata import ImputeStrategy
 
-from pandas.api.types import is_string_dtype
+import pandas as pd
 from pandas.api.types import is_numeric_dtype
+from pandas.api.types import is_string_dtype
+
 from categoricdata import CategoricDataEncoder
+from engine import PreprocessingEngine
+from metadata import DatasetMetadataLoader, FeatureType
+from missingdata import ImputeStrategy
 
 
 class TestPreprocessingEngine(unittest.TestCase):
