@@ -3,16 +3,16 @@ import sys
 
 
 class DatasetMetadataLoader:
-    feature_types_section = "FEATURE_TYPES"
+    FEATURE_TYPES_SECTION = "FEATURE_TYPES"
 
     def __init__(self, metadata_path):
-        config_parser = configparser.ConfigParser()
-        config_parser.read(metadata_path)
-        self.config = config_parser
+        configParser = configparser.ConfigParser()
+        configParser.read(metadata_path)
+        self.config = configParser
 
-    def get_feature_type(self, feature: str) -> str:
+    def getFeatureType(self, feature: str) -> str:
         try:
-            return self.config[DatasetMetadataLoader.feature_types_section][feature]
+            return self.config[DatasetMetadataLoader.FEATURE_TYPES_SECTION][feature]
         except KeyError:
             print("{0} is not found in metadata configuration, with cause.".format(feature))
             sys.exit(0)
