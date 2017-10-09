@@ -26,6 +26,21 @@ class TestPreprocessingEngine(unittest.TestCase):
 
         for categoricColumn in categoricColumns:
             self.assertTrue(is_numeric_dtype(encodedDataset[categoricColumn]))
+        print(encodedDataset)
+
+    def test_encodeCategoricColumnsAndTransformOne_encodedTransformedAndDeleted(self):
+        metadata = DatasetMetadataLoader("metadata.ini")
+        dataset = pd.read_csv('Data.csv')
+
+        processedDataset = self.prepareDataset(dataset, metadata)
+
+        testee = CategoricDataEncoder(processedDataset, metadata)
+        encodedDataset = testee.encodeCategoricColumns(columnsToTransform=["Country"])
+
+        self.assertFalse("Country" in encodedDataset.columns)
+        self.assertTrue("Spain" in encodedDataset.columns)
+        self.assertTrue("Germany" in encodedDataset.columns)
+        self.assertTrue("France" in encodedDataset.columns)
 
     def prepareDataset(self, dataset, metadata):
         return PreprocessingEngine(dataset, metadata) \
