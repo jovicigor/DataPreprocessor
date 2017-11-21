@@ -1,4 +1,4 @@
-# Project Title
+# Data Preprocessing Engine
 
 This is a library that wraps common data processing tasks into an easy to use preprocessing engine. 
 The library currently supports transformation of csv files loaded into Pandas dataframe. 
@@ -83,7 +83,7 @@ Performing the above code would result in a new dataframe that has the missing v
 | Germany | 50.0              | 83000.0           | No        | 
 | France  | 37.0              | 67000.0           | Yes       | 
 
-* Handling missing categoric data such as Country is supported only by eliminating the rows with missing data using method * 
+* Handling missing categoric data such as Country is supported only by eliminating the rows with missing data using method
 
 ```
 filteredDataframe = PreprocessingEngine(processedDataframe, metadata) \
