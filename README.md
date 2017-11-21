@@ -1,6 +1,6 @@
 # Data Preprocessing Engine
 
-This is a library that wraps common data processing tasks into an easy to use preprocessing engine. 
+A simple library that wraps common data processing tasks into an easy to use preprocessing engine. 
 The library currently supports transformation of csv files loaded into Pandas dataframe. 
 
 ## Getting Started
