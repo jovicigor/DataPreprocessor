@@ -24,7 +24,7 @@ Here's the list of dependencies:
 
 ### Usage
 
-Here you can find examples of using DataPreprocessor for processing a dataset given by the following table. 
+Here you can find examples of using DataPreprocessor for processing a dummy dataset.  
 
 | Country | Age | Salary | Purchased | 
 |---------|-----|--------|-----------| 
@@ -49,7 +49,7 @@ Purchased = CATEGORIC
 ```
 
 #### Handling missing data
-One of the most common preprocessing tasks in machine learning is handling the missing data. DataProcessor supports handles missing data by allowing you to exchange missing values with either MEAN or MEDIAN value of numeric columns. 
+One of the most common preprocessing tasks in machine learning is handling the missing data. DataProcessor handles missing **numeric** data by allowing you to exchange missing values with either MEAN or MEDIAN value of numeric columns. 
 
 ```
 import pandas as pd
@@ -68,7 +68,7 @@ processedDataframe = PreprocessingEngine(dataset, metadata) \
     .imputeNumericDataUsing(ImputeStrategy.MEAN) \
     .getProcessedDataframe()
 ```
-Performing the above code would result in a new dataframe that has the missing values for age and salary filled with their means as shown on next table. 
+Executing the above code would result in a new dataframe that has the missing values for age and salary filled with their means as shown on next table. 
 
 | Country | Age               | Salary            | Purchased | 
 |---------|-------------------|-------------------|-----------| 
@@ -93,13 +93,14 @@ filteredDataframe = PreprocessingEngine(processedDataframe, metadata) \
 
 #### Encoding categoric columns
 
-As shown in the following code, specifying Country as column to perform transformation would eliminate that column and replace it with three columns: Germany, France and Spain. 
+As shown in the following code, setting columnsToTransform to "Country" would eliminate that column and replace it with three columns: Germany, France and Spain. 
+
 ```
 encodedDataframe = PreprocessingEngine(processedDataframe, metadata) \
             .encodeCategoricData(columnsToTransform="Country") \
             .getProcessedDataframe()
 ```
-The encodedDataframe looks like shown in next table.  
+The dataframe after encoding looks like shown in the next table.  
 | Age               | Salary            | Purchased | France | Germany | Spain | 
 |-------------------|-------------------|-----------|--------|---------|-------| 
 | 44.0              | 72000.0           | 0         | 1.0    | 0.0     | 0.0   | 
@@ -124,7 +125,6 @@ from sklearn.preprocessing import MinMaxScaler
             .getProcessedDataframe()
 ```
 
-The result of the code above is shown in next table. 
 
 | Age                 | Salary              | Purchased | France | Germany | Spain | 
 |---------------------|---------------------|-----------|--------|---------|-------| 
@@ -162,4 +162,4 @@ python RunAllUnitTests.py
 
 ## Authors
 
-* **Igor Jovic** - *Initial work* - [jovicigor](https://github.com/jovicigor)
+* **Igor Jovic** - [jovicigor](https://github.com/jovicigor)
