@@ -101,6 +101,7 @@ encodedDataframe = PreprocessingEngine(processedDataframe, metadata) \
             .getProcessedDataframe()
 ```
 The dataframe after encoding looks like shown in the next table.  
+
 | Age               | Salary            | Purchased | France | Germany | Spain | 
 |-------------------|-------------------|-----------|--------|---------|-------| 
 | 44.0              | 72000.0           | 0         | 1.0    | 0.0     | 0.0   | 
