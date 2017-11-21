@@ -1,7 +1,7 @@
-from categoricdata import CategoricDataEncoder
-from missingdata import CategoricDataFilter
-from missingdata import NumericDataImputer
-from scaling import Scaler
+from datapreprocessor.categoricdata import CategoricDataEncoder
+from datapreprocessor.missingdata import CategoricDataFilter
+from datapreprocessor.missingdata import NumericDataImputer
+from datapreprocessor.scaling import Scaler
 
 
 class PreprocessingEngine:

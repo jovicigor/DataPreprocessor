@@ -1,7 +1,7 @@
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OneHotEncoder
 
-from metadata import FeatureType
+from datapreprocessor.metadata import FeatureType
 
 
 class CategoricDataEncoder:

@@ -6,3 +6,7 @@ pip-selfcheck.json
 .idea/
 
 .Python
+
+virtualenv/
+
+*__pycache__*

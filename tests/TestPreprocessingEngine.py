@@ -3,9 +3,9 @@ import unittest
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
-from engine import PreprocessingEngine
-from metadata import DatasetMetadataLoader
-from missingdata import ImputeStrategy
+from datapreprocessor.engine import PreprocessingEngine
+from datapreprocessor.metadata import DatasetMetadataLoader
+from datapreprocessor.missingdata import ImputeStrategy
 
 
 class TestPreprocessingEngine(unittest.TestCase):

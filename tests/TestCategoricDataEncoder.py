@@ -4,10 +4,10 @@ import pandas as pd
 from pandas.api.types import is_numeric_dtype
 from pandas.api.types import is_string_dtype
 
-from categoricdata import CategoricDataEncoder
-from engine import PreprocessingEngine
-from metadata import DatasetMetadataLoader, FeatureType
-from missingdata import ImputeStrategy
+from datapreprocessor.categoricdata import CategoricDataEncoder
+from datapreprocessor.engine import PreprocessingEngine
+from datapreprocessor.metadata import DatasetMetadataLoader, FeatureType
+from datapreprocessor.missingdata import ImputeStrategy
 
 
 class TestPreprocessingEngine(unittest.TestCase):

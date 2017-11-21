@@ -1,7 +1,7 @@
 import unittest
 
-from metadata import DatasetMetadataLoader
-from metadata import FeatureType
+from datapreprocessor.metadata import DatasetMetadataLoader
+from datapreprocessor.metadata import FeatureType
 
 
 class TestDatasetMetadataLoader(unittest.TestCase):

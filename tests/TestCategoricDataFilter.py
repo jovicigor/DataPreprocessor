@@ -2,8 +2,8 @@ import unittest
 
 import pandas as pd
 
-from metadata import DatasetMetadataLoader
-from missingdata import CategoricDataFilter
+from datapreprocessor.metadata import DatasetMetadataLoader
+from datapreprocessor.missingdata import CategoricDataFilter
 
 
 class TestCategoricDataFilter(unittest.TestCase):
