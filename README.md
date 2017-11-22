@@ -7,7 +7,7 @@ The library currently supports transformation of csv files loaded into Pandas da
 
 In order to get started simply fetch the package using the following pip command: 
 ```
-pip install git+https://github.com/jovicigor/DataPreprocessor 
+pip install git+https://github.com/jovicigor/DataPreprocessor@v0.1
 ```
 ### Prerequisites
 DataPreprocessor is built on top of existing Python libraries and therefore requires them in order to work properly. 
