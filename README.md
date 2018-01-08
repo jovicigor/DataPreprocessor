@@ -157,7 +157,7 @@ processedDataframe = PreprocessingEngine(dataset, metadata) \
 In order to run the tests clone this repository and execute following commands: 
 ```
 pip install -r requirements.txt
-cd tasks
+cd tests
 python RunAllUnitTests.py
 ```
 
