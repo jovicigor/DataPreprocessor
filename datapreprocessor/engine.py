@@ -2,6 +2,7 @@ from datapreprocessor.categoricdata import CategoricDataEncoder
 from datapreprocessor.missingdata import CategoricDataFilter
 from datapreprocessor.missingdata import NumericDataImputer
 from datapreprocessor.scaling import Scaler
+from datapreprocessor.shift import ColumnShifter
 
 
 class PreprocessingEngine:
@@ -27,6 +28,13 @@ class PreprocessingEngine:
     def scaleDataset(self, sklearScaler):
         scaler = Scaler(sklearScaler)
         self.dataset = scaler.scaleDataset(self.dataset)
+        return self
+
+    def shiftRight(self, columnToShift):
+        shifter = ColumnShifter(self.dataset)
+
+        self.dataset = shifter.shiftRight(columnToShift)
+
         return self
 
     def getProcessedDataframe(self):
