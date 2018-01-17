@@ -139,6 +139,33 @@ from sklearn.preprocessing import MinMaxScaler
 | 1.0                 | 1.0                 | 0.0       | 0.0    | 1.0     | 0.0   | 
 | 0.43478260869565233 | 0.5428571428571427  | 1.0       | 1.0    | 0.0     | 0.0   | 
 
+#### Moving columns
+
+There are times when we want to move some columns to the rightmost column of the dataset. This can be done using shiftRight() method in PreprocessingEngine. 
+
+
+| Age                 | Salary              | Purchased | France | Germany | Spain | 
+|---------------------|---------------------|-----------|--------|---------|-------| 
+| 0.7391304347826089  | 0.6857142857142855  | 0.0       | 1.0    | 0.0     | 0.0   | 
+| 0.0                 | 0.0                 | 1.0       | 0.0    | 0.0     | 1.0   | 
+
+For example in the dataframe above we could move the Purchased column to right by executing the following code. 
+
+```
+
+shiftedDataframe = PreprocessingEngine(encodedDataframe, metadata) \
+            .shiftRight("Purchased") \
+            .getProcessedDataframe()
+```
+
+The shiftedDataFrame would look like shown in the next table. 
+
+
+| Age                 | Salary              | France | Germany | Spain | Purchased | 
+|---------------------|---------------------|--------|---------|-------|-----------|
+| 0.7391304347826089  | 0.6857142857142855  | 1.0    | 0.0     | 0.0   | 0.0       |
+| 0.0                 | 0.0                 | 0.0    | 0.0     | 1.0   | 1.0       |
+
 #### Transforming the dataset in one go
 
 The transformation operations can be executed in one go just by calling them one after the other. 
